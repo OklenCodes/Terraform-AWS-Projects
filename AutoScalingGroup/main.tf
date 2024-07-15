@@ -35,74 +35,74 @@ data "aws_ami" "amazon-linux" {
   }
 }
 
-resource "aws_launch_configuration" "terramino" {
+resource "aws_launch_configuration" "terratutorial" {
   name_prefix     = "learn-terraform-aws-asg-"
   image_id        = data.aws_ami.amazon-linux.id
   instance_type   = "t2.micro"
   user_data       = file("user-data.sh")
-  security_groups = [aws_security_group.terramino_instance.id]
+  security_groups = [aws_security_group.terratutorial_instance.id]
 
   lifecycle {
     create_before_destroy = true
   }
 }
 
-resource "aws_autoscaling_group" "terramino" {
-  name                 = "terramino"
+resource "aws_autoscaling_group" "terratutorial" {
+  name                 = "terratutorial"
   min_size             = 1
   max_size             = 3
   desired_capacity     = 1
-  launch_configuration = aws_launch_configuration.terramino.name
+  launch_configuration = aws_launch_configuration.terratutorial.name
   vpc_zone_identifier  = module.vpc.public_subnets
 
   health_check_type    = "ELB"
 
   tag {
     key                 = "Name"
-    value               = "HashiCorp Learn ASG - Terramino"
+    value               = "HashiCorp Learn ASG - terratutorial"
     propagate_at_launch = true
   }
 }
 
-resource "aws_lb" "terramino" {
-  name               = "learn-asg-terramino-lb"
+resource "aws_lb" "terratutorial" {
+  name               = "learn-asg-terratutorial-lb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.terramino_lb.id]
+  security_groups    = [aws_security_group.terratutorial_lb.id]
   subnets            = module.vpc.public_subnets
 }
 
-resource "aws_lb_listener" "terramino" {
-  load_balancer_arn = aws_lb.terramino.arn
+resource "aws_lb_listener" "terratutorial" {
+  load_balancer_arn = aws_lb.terratutorial.arn
   port              = "80"
   protocol          = "HTTP"
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.terramino.arn
+    target_group_arn = aws_lb_target_group.terratutorial.arn
   }
 }
 
-resource "aws_lb_target_group" "terramino" {
-  name     = "learn-asg-terramino"
+resource "aws_lb_target_group" "terratutorial" {
+  name     = "learn-asg-terratutorial"
   port     = 80
   protocol = "HTTP"
   vpc_id   = module.vpc.vpc_id
 }
 
 
-resource "aws_autoscaling_attachment" "terramino" {
-  autoscaling_group_name = aws_autoscaling_group.terramino.id
-  alb_target_group_arn   = aws_lb_target_group.terramino.arn
+resource "aws_autoscaling_attachment" "terratutorial" {
+  autoscaling_group_name = aws_autoscaling_group.terratutorial.id
+  alb_target_group_arn   = aws_lb_target_group.terratutorial.arn
 }
 
-resource "aws_security_group" "terramino_instance" {
-  name = "learn-asg-terramino-instance"
+resource "aws_security_group" "terratutorial_instance" {
+  name = "learn-asg-terratutorial-instance"
   ingress {
     from_port       = 80
     to_port         = 80
     protocol        = "tcp"
-    security_groups = [aws_security_group.terramino_lb.id]
+    security_groups = [aws_security_group.terratutorial_lb.id]
   }
 
   egress {
@@ -115,8 +115,8 @@ resource "aws_security_group" "terramino_instance" {
   vpc_id = module.vpc.vpc_id
 }
 
-resource "aws_security_group" "terramino_lb" {
-  name = "learn-asg-terramino-lb"
+resource "aws_security_group" "terratutorial_lb" {
+  name = "learn-asg-terratutorial-lb"
   ingress {
     from_port   = 80
     to_port     = 80

@@ -6,7 +6,7 @@ Objective of this is to create a series that is easy to follow and understand to
 Before you begin, you should have access to the following tools from your local machine: 
 
 - [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
-- [AWS account] (https://aws.amazon.com/) 
+- [AWS account](https://aws.amazon.com/) 
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
 # Creating AWS AutoScaling Group

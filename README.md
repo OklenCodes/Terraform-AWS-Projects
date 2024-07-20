@@ -1,10 +1,14 @@
 # TerraformTutorials
 
-
-
-
-
 Objective of this is to create a series that is easy to follow and understand to help others provision terraform when working with AWS.
+
+# **Prerequisites:**
+Before you begin, you should have access to the following tools from your local machine: 
+
+- [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) 
+- AWS account 
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
 
 [AWS AutoScaling Group](https://github.com/OklenCodes/Terraform-AWS-Tutorials/tree/main/AutoScalingGroup) - It contains Terraform conifguration files for you to use to learn how to configure and scale an Auto Scaling group. Also related to the youtube video - 
 

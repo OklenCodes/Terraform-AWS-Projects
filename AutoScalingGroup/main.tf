@@ -25,26 +25,21 @@ module "vpc" {
   enable_dns_support   = true
 }
 
-data "aws_ami" "amazon-linux" {
+data "aws_ami" "amazon_linux" {
   most_recent = true
-  owners      = ["amazon"]
+  owners      = ["amazon"]  # This might not be necessary anymore
 
   filter {
     name   = "name"
-    values = ["amzn-ami-hvm-*-x86_64-ebs"]
+    values = ["amzn2-ami-hvm-*-x86_64-ebs"]  # Specify Amazon Linux 2 pattern
   }
 }
 
 resource "aws_launch_configuration" "terratutorial" {
-  name_prefix     = "learn-terraform-aws-asg-"
-  image_id        = data.aws_ami.amazon-linux.id
-  instance_type   = "t2.micro"
-  user_data       = file("user-data.sh")
-  security_groups = [aws_security_group.terratutorial_instance.id]
-
-  lifecycle {
-    create_before_destroy = true
-  }
+  name_prefix = "learn-terraform-aws-asg-"
+  image_id = data.aws_ami.amazon_linux.id  # Now references the declared resource
+  instance_type = "t2.micro"
+  
 }
 
 resource "aws_autoscaling_group" "terratutorial" {
@@ -62,6 +57,32 @@ resource "aws_autoscaling_group" "terratutorial" {
     value               = "HashiCorp Learn ASG - terratutorial"
     propagate_at_launch = true
   }
+}
+
+resource "aws_autoscaling_policy" "scale_down" {
+  name                   = "terratutorial-scale-down"
+  scaling_adjustment     = -1
+  adjustment_type        = "ChangeInCapacity"
+  cooldown               = 120
+  autoscaling_group_name = aws_autoscaling_group.terratutorial.name
+}
+
+resource "aws_cloudwatch_metric_alarm" "scale_down" {
+  alarm_name          = "terratutorial-scale-down"
+  comparison_operator = "LessThanOrEqualToThreshold"
+  evaluation_periods  = "2"                          # 2 minutes
+  metric_name         = "CPUUtilization"
+  namespace           = "AWS/EC2"
+  period              = "120"
+  statistic           = "Average"
+  threshold           = "10"
+
+  dimensions = {
+    AutoScalingGroupName = aws_autoscaling_group.terratutorial.name
+  }
+
+  alarm_description = "This metric monitors ec2 cpu utilization"
+  alarm_actions     = [aws_autoscaling_policy.scale_down.arn]
 }
 
 resource "aws_lb" "terratutorial" {

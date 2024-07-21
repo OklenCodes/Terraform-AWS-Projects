@@ -1,6 +1,6 @@
 # TerraformTutorials
 
-Objective of this is to create a series that is easy to follow and understand to help others provision terraform when working with AWS.
+Objective of this is to create a series for Terraform and AWS hands-on projects, that are easy to follow and understand
 
 # **Prerequisites:**
 Before you begin, you should have access to the following tools from your local machine: 

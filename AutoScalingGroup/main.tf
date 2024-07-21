@@ -31,14 +31,15 @@ data "aws_ami" "amazon_linux" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-ebs"]  # Specify Amazon Linux 2 pattern
+    values = ["amzn2-ami-hvm-*-x86_64-ebs"]  # Specific Amazon Linux 2 pattern
   }
 }
 
 resource "aws_launch_configuration" "terratutorial" {
-  name_prefix = "learn-terraform-aws-asg-"
-  image_id = data.aws_ami.amazon_linux.id  # Now references the declared resource
-  instance_type = "t2.micro"
+  name_prefix     = "learn-terraform-aws-asg-"
+  image_id        = data.aws_ami.amazon_linux.id  # Now references the declared resource
+  instance_type   = "t2.micro"
+
   
 }
 
@@ -54,7 +55,7 @@ resource "aws_autoscaling_group" "terratutorial" {
 
   tag {
     key                 = "Name"
-    value               = "HashiCorp Learn ASG - terratutorial"
+    value               = "Learn ASG - terratutorial"
     propagate_at_launch = true
   }
 }

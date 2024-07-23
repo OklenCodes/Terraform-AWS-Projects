@@ -40,7 +40,6 @@ resource "aws_launch_configuration" "terratutorial" {
   image_id        = data.aws_ami.amazon_linux.id  # Now references the declared resource
   instance_type   = "t2.micro"
 
-  
 }
 
 resource "aws_autoscaling_group" "terratutorial" {

@@ -14,4 +14,10 @@ Before you begin, you should have access to the following tools from your local 
 
 ![image](https://github.com/user-attachments/assets/fed3f73d-1f9a-4f21-9a04-0c4014382052)
 
+# Creating AWS IAM Policies 
+[AWS AutoScaling Group](https://github.com/OklenCodes/Terraform-AWS-Tutorials/tree/main/AutoScalingGroup) - It contains Terraform conifguration files for you to use to learn how to configure and scale an Auto Scaling group. Also related to the youtube video - https://youtu.be/1UtEyacje98
+
+![image](https://github.com/user-attachments/assets/fed3f73d-1f9a-4f21-9a04-0c4014382052)
+
+
 

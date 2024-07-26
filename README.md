@@ -15,7 +15,10 @@ Before you begin, you should have access to the following tools from your local 
 ![image](https://github.com/user-attachments/assets/fed3f73d-1f9a-4f21-9a04-0c4014382052)
 
 # Creating AWS IAM Policies 
-[AWS IAM Policies](https://github.com/OklenCodes/Terraform-AWS-Tutorials/tree/main/IAMPolicies) - This contains theTerraform conifguration files for you to use to learn how to configure AWS IAM. Also related to the youtube video - 
+[AWS IAM Policies](https://github.com/OklenCodes/Terraform-AWS-Tutorials/tree/main/IAMPolicies) - There are advantages to managing IAM policies in Terraform rather than manually in AWS. With Terraform, you can reuse your policy templates and ensure the principle of least privilege with resource interpolation.
+
+In this tutorial, you will create an IAM user and an S3 bucket. Then, you will map permissions for that bucket with an IAM policy. Finally, you will attach that policy to the new user and learn how to iterate on more complex policies.
+Also related to the youtube video - 
 
 
 

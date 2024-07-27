@@ -10,14 +10,14 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
       {
         Effect = "Allow"
         Principal = {
-          AWS = "${aws_iam_user.mahira-user.name}"
+          AWS = "${aws_iam_user.test-user.name}"
         }
         Action = [
           "s3:*"
         ]
         Resource = [
-          "${aws_s3_bucket.mahira.arn}/*",
-          "${aws_s3_bucket.mahira.arn}"
+          "${aws_s3_bucket.test.arn}/*",
+          "${aws_s3_bucket.test.arn}"
         ]
       }
     ]
@@ -29,12 +29,12 @@ resource "aws_iam_user" "user" {
 }
 
 resource "aws_iam_policy" "policy" {
-  name        = "test-policy"
-  description = "A test policy"
+  name        = "terratutorial-policy"
+  description = "A terraform tutorial policy"
   policy      = "{ ... policy JSON ... }"
 }
 
 resource "aws_iam_user_policy_attachment" "test-attach" {
-  user       = aws_iam_user.user.name
+  user       = aws_iam_user.test.name
   policy_arn = aws_iam_policy.policy.arn
 }

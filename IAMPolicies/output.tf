@@ -1,12 +1,11 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "3.0"
-    }
-  }
+output "bucket_arn" {
+  value = aws_s3_bucket.mahira.arn
 }
- 
-provider "aws" {
-  region = var.aws_region
+
+output "bucket_acl" {
+  value = aws_s3_bucket.mahira.acl
+}
+
+output "user_id" {
+  value = aws_iam_user.mahira-user.id
 }

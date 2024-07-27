@@ -1,9 +1,9 @@
-resource "aws_s3_bucket" "mahira" {
+resource "aws_s3_bucket" "terratutorial" {
   bucket = var.s3_bucket_name
 }
  
 resource "aws_s3_bucket_policy" "bucket_policy" {
-  bucket = aws_s3_bucket.mahira.id
+  bucket = aws_s3_bucket.terratutorial.id
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [

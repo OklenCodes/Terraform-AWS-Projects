@@ -1,6 +1,6 @@
 variable "aws_region" {
   description = "storing of region from aws console"
-  default     = "us-west-1"
+  default     = "us-east-2"
 }
 
 variable "s3_bucket_name" {

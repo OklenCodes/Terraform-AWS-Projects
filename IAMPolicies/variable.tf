@@ -5,10 +5,10 @@ variable "aws_region" {
 
 variable "s3_bucket_name" {
   type = string
-  default = "mahira-s3-bucket"
+  default = "terratutorial-s3-bucket"
 }
 
 variable "user_name" {
   type = string
-  default = "mahira_user"
+  default = "test_user"
 }

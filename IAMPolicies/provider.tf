@@ -5,9 +5,6 @@ terraform {
       version = "~> 3.38"
     }
   }
-}
- 
-provider "aws" {
-  region = var.aws_region
-}
 
+  required_version = ">= 0.15"
+}

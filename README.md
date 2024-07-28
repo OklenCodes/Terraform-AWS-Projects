@@ -27,7 +27,7 @@ Also related to the youtube video -
 
 # Creating simple AWS Infrastructure
 
-[Simple AWS Infratstructure] - (https://github.com/OklenCodes/Terraform-AWS-Tutorials/tree/main/Simple-AWS-Infrastructure) - In this tutorial, I will use Terraform to create a simple AWS Infrastructure that comprises of VPC, Security group, public and private subnet, route table, internet gateay and finally EC2 instances. 
+[Simple AWS Infratstructure](https://github.com/OklenCodes/Terraform-AWS-Tutorials/tree/main/Simple-AWS-Infrastructure) - In this tutorial, I will use Terraform to create a simple AWS Infrastructure that comprises of VPC, Security group, public and private subnet, route table, internet gateay and finally EC2 instances. 
 
 Youtube video - https://www.youtube.com/watch?v=YBoIBZ5VSAU
 

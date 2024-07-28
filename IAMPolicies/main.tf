@@ -1,40 +1,60 @@
-resource "aws_s3_bucket" "terratutorial" {
-  bucket = var.s3_bucket_name
+
+resource "aws_s3_bucket" "log_bucket" {  #Note that S3 bucket names must be globally unique amongst all AWS customers.
+  bucket = "oklen-extremely-unique"
+    tags = {
+      Name        = "MyBucketLog"
+      Environment = "Production"
+    }
 }
- 
+
 resource "aws_s3_bucket_policy" "bucket_policy" {
-  bucket = aws_s3_bucket.terratutorial.id
+  bucket = aws_s3_bucket.log_bucket.id
+  policy = jsonencode(
+    {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::498543162511:user/tester"
+            },
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetObject",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::oklen-extremely-unique",
+                "arn:aws:s3:::oklen-extremely-unique/*"
+            ]
+        }
+    ]
+    
+  })
+}
+
+/*
+resource "aws_iam_user_policy" "aws_s3_bucket" {
+  name = "s3BucketPolicy"
+  user = "tester"
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
-        Effect = "Allow"
-        Principal = {
-          AWS = "${aws_iam_user.test-user.name}"
-        }
         Action = [
-          "s3:*"
+          "s3:*",
         ]
-        Resource = [
-          "${aws_s3_bucket.test.arn}/*",
-          "${aws_s3_bucket.test.arn}"
-        ]
-      }
+        Effect   = "Allow"
+        Resource = "*"
+      },
     ]
   })
 }
-
+*/
 resource "aws_iam_user" "user" {
-  name = "test-user"
-}
-
-resource "aws_iam_policy" "policy" {
-  name        = "terratutorial-policy"
-  description = "A terraform tutorial policy"
-  policy      = "{ ... policy JSON ... }"
-}
-
-resource "aws_iam_user_policy_attachment" "test-attach" {
-  user       = aws_iam_user.test.name
-  policy_arn = aws_iam_policy.policy.arn
+  name = "tester"
+  path = "/"
 }

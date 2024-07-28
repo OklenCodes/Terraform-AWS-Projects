@@ -22,6 +22,7 @@ Also related to the youtube video - https://youtu.be/1UtEyacje98
 In this tutorial, I will create an IAM user and an S3 bucket. Then, I will map permissions for that bucket with an IAM policy. Finally, I will attach that policy to the new user and learn how to iterate on more complex policies.
 Also related to the youtube video - 
 
+![image](https://github.com/OklenCodes/Terraform-AWS-Tutorials/blob/main/IAMandS3Policy/IAM%20image.PNG)
 
 
 

@@ -25,4 +25,13 @@ Also related to the youtube video -
 ![image](https://github.com/OklenCodes/Terraform-AWS-Tutorials/blob/main/IAMandS3Policy/IAM%20image.PNG)
 
 
+#Creating simple AWS Infrastructure
+
+In this tutorial, I will create a simple AWS Infrastructure that comprises of VPC, Security group, public and private subnet, route table, internet gateay and finally EC2 instances. 
+
+Youtube video - https://www.youtube.com/watch?v=YBoIBZ5VSAU
+
+![image](https://github.com/user-attachments/assets/128dfd78-b027-4d3a-82bd-96be3f4e9da1)
+
+
 

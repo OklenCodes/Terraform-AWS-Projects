@@ -45,7 +45,7 @@ I have also added the Install.sh script for using Ubuntu as well as the AMI for 
 Youtube Tutorial for this project - https://youtu.be/dutxZ1a1cmo
 
 # Terraform provisioning AWS EKS
-This project demonstrates how to AWS EKS using Terraform.
+[AWS-EKS](https://github.com/OklenCodes/Terraform-AWS-Tutorials/tree/main/AWSEKS) - This project demonstrates how to AWS EKS using Terraform.
 ![image](https://github.com/user-attachments/assets/78f6ad32-d5df-427e-b049-3ee2b9c9c01b)
 
 This video tutorial will guide you through the process of setting up a fully functional EKS cluster on AWS using Terraform's infrastructure as code capabilities. 

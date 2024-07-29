@@ -35,7 +35,7 @@ Youtube video - https://www.youtube.com/watch?v=YBoIBZ5VSAU
 
 # Terraform provisioning EC2 instance with Jenkins, Docker and Sonarqube
 
-[Terraform-EC2-Jenkins-SonarQube](https://github.com/OklenCodes/Terraform-AWS-Tutorials/tree/main/Terraform-EC2-Jenkins-SonarQube)In this tutorial, I will use terraform to firstrly create a EC2 instance and a Security group. In addition to this I will create a shellscript that will upgrade the EC2 instance then install Jenkins  and Docker. 
+[Terraform-EC2-Jenkins-SonarQube](https://github.com/OklenCodes/Terraform-AWS-Tutorials/tree/main/Terraform-EC2-Jenkins-SonarQube) - In this tutorial, I will use terraform to firstrly create a EC2 instance and a Security group. In addition to this I will create a shellscript that will upgrade the EC2 instance then install Jenkins  and Docker. 
 Following the Docker installation I will then run SonarQube from the docker image
 Also related to the youtube video - https://youtu.be/gHDsv6K31bI
 

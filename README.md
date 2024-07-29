@@ -1,4 +1,4 @@
-# TerraformTutorials
+# Terraform with AWS Tutorials
 
 Objective of this is to create a series for Terraform and AWS hands-on projects, that are easy to follow and understand
 

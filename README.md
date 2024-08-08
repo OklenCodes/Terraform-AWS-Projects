@@ -56,6 +56,6 @@ Youtube Tutorial for this project - https://youtu.be/EMs9nQ6SPVQ
 # Deploying serverless applications with AWS Lambda and API Gateway
 
 [AWS-Lambda-Terraform](https://github.com/OklenCodes/Terraform-AWS-Tutorials/blob/main/TerraformLambda/main.tf) - In this tutorial, I will deploy a NodeJS function to AWS Lambda, and then expose that function to the Internet using Amazon API Gateway.
-![lambda-terraform](https://github.com/user-attachments/assets/ce59c5a8-af2c-4738-826a-314dba9e8e0b)
+![lambda-terraform](https://github.com/user-attachments/assets/d1ef43b9-0539-4129-84e4-e980248b05b5)
 
 
